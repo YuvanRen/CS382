@@ -9,10 +9,8 @@ putchar(bit + 48);
 }
 void display_32(int32_t num) {
 for (int i = 31; i >= 0; i--) {
-int8_t bit = (num >> i) & 1; //each iteration of the loop, this line
-right-shifts the num by i positions
-display(bit); // & 1 ensures the least signigicant b of the
-result is considered
+int8_t bit = (num >> i) & 1; //each iteration of the loop, this line right-shifts the num by i positions
+display(bit); // & 1 ensures the least signigicant b of the result is considered
 }
 putchar('\n');
 }
