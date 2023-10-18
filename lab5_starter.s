@@ -9,12 +9,33 @@
 
 /* char _uppercase(char lower) */
 _uppercase:
+    /* Your code here 
+    
+        You must follow calling convention,
+        and make this a procedure.
+    
+    */
+    SUB sp, sp, 8       // Char pointer 
+    STR X30, [sp]
+
     SUB W1, W1, 32      // Convert to uppercase
     STRB W1, [X0, X3]   // Store the uppercase character back
+
+    LDR X30, [sp]
+    ADD sp, sp, 8
     RET
 
 /* int _toupper(char* string) */
 _toupper:
+    /* Your code here 
+
+        You must call _uppercase() for every character in string.
+        Both loop and recursion are good.
+
+        You must follow calling convention,
+        and make this a procedure.
+
+    */
     SUB sp, sp, 11      // Frame_size
     MOV X3, 0           // Character tracker
     STR X30, [sp]
@@ -31,6 +52,12 @@ end:
     RET
 
 _start:
+    /* You code here:
+
+        1. Call _toupper() to convert str;
+        2. Call printf() to print outstr to show the result.
+    
+    */
     // Load the address of the input string into X0
     ADR X0, str
 
